@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-import Navigation from "../navigation";
-import css from "./Layout.module.css";
+// import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import Navigation from '../navigation';
+import css from './Layout.module.css';
 
 const Layout = () => {
   return (
@@ -13,9 +13,7 @@ const Layout = () => {
       </header>
       <main className={css.main}>
         <div className={css.container}>
-          <Suspense>
-            <Outlet />
-          </Suspense>
+          <Outlet />
         </div>
       </main>
     </div>
