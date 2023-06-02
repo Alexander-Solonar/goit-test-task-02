@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button/Button';
 import TweetsList from '../components/tweetsList/';
 import * as API from '../services/API';
@@ -6,39 +6,54 @@ import { useEffect, useState } from 'react';
 import Filter from '../components/filter';
 
 const Tweets = () => {
-  const [tweets, setTweets] = useState([]);
-  const [limit, setLimit] = useState(3);
+  const [tweetsColection, setTweetsColection] = useState([]);
   const [isButton, setIsButton] = useState(false);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const limit = searchParams.get("limit") ?? "3";
+  const [page, setPage] = useState('1');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filter = searchParams.get('filter') ?? 'all';
 
   useEffect(() => {
     (async () => {
       try {
-        const usersList = await API.getCardTweets(limit);
-        setTweets(usersList);
-        setIsButton(true);
+        const usersList = await API.getCardTweets(page);
 
-        if (limit >= 12) {
+        if (page === '1') {
+          setTweetsColection(usersList);
+          setIsButton(true);
+        } else {
+          setTweetsColection(prevState => [...prevState, ...usersList]);
+          setIsButton(true);
+        }
+
+        if (page * 3 >= 12) {
           setIsButton(false);
         }
       } catch (error) {
         alert(error.message);
       }
     })();
-  }, [limit]);
+  }, [page]);
 
   const handleChangePage = () => {
-    // setSearchParams((prevState) => ({ ...prevState, limit: +limit + 3 }));
-    setLimit(prevState => prevState + 3);
+    setPage(prevState => +prevState + 1);
+  };
+
+  const visibleContacts = () => {
+    if (filter === 'all') {
+      return tweetsColection;
+    } else if (filter === 'follow') {
+      return tweetsColection.filter(tweet => tweet.selected === false);
+    } else if (filter === 'followings') {
+      return tweetsColection.filter(tweet => tweet.selected === true);
+    }
   };
 
   return (
     <div>
       <Link to="/">Back</Link>
-      <Filter />
-      <TweetsList data={tweets} />
-      {tweets.length > 0 && isButton && (
+      <Filter setSearchParams={setSearchParams} statusFilter={filter} />
+      <TweetsList data={visibleContacts()} />
+      {visibleContacts().length > 0 && isButton && (
         <Button onClick={handleChangePage}></Button>
       )}
     </div>
