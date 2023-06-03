@@ -3,7 +3,12 @@ import css from './Button.module.css';
 
 const Button = ({ onClick }) => {
   return (
-    <button className={css.button} onClick={onClick}>
+    <button
+      className={css.button}
+      onClick={() => {
+        onClick(prevState => prevState + 3);
+      }}
+    >
       Load more
     </button>
   );

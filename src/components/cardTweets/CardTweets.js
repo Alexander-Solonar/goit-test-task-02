@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import * as API from '../../services/API';
 import clsx from 'clsx';
-import logo from '../images/icons.svg';
 import css from './CardTweets.module.css';
+import logo from '../../images/logo.svg';
 
 const CardTweets = ({ dataCard }) => {
   const { user, tweets, followers, avatar, selected, id } = dataCard;
@@ -42,11 +42,9 @@ const CardTweets = ({ dataCard }) => {
 
   return (
     <div className={css.cardTweet}>
-      <svg className={css.logo} width="76" height="22">
-        <use href={`${logo}#icon-logo`}></use>
-      </svg>
+      <img className={css.logo} src={logo} width="76" alt="logo" />
       <div className={css.avatar}>
-        <img src={`${avatar}`} alt={`${user}`} width="62" height="62" />
+        <img src={avatar} alt={user} width="62" height="62" />
       </div>
       <div className={css.text}>
         <p>

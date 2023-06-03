@@ -1,12 +1,12 @@
-.filterList {
-  display: flex;
-  justify-content: center;
-  column-gap: 15px;
+.container {
+  max-width: 1205px;
+  padding: 15px 15px 30px;
   margin: 0 auto;
-  background-color: #ebd8ff;
 }
 
-.filterBtn {
+.buuton {
+  display: inline-block;
+  margin-bottom: 10px;
   padding: 7px 14px;
   cursor: pointer;
   font-family: inherit;
@@ -20,16 +20,4 @@
   background-color: #4b2a99;
   transition: color 250ms cubic-bezier(0.075, 0.82, 0.165, 1) background-color
     250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.active {
-  color: #373737;
-  background-color: #5cd3a8;
-}
-
-.filterBtn:hover,
-.filterBtn:focus {
-  color: #373737;
-  background-color: #5cd3a8;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
 }

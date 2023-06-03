@@ -1,0 +1,41 @@
+.container {
+  text-align: center;
+  max-width: 1200px;
+
+  padding-bottom: 80px;
+  margin: 0 auto;
+  background-color: #ebd8ff;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 43px;
+  column-gap: 16px;
+  padding: 15px 60px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06);
+  background-color: #4b2a99;
+}
+
+.link {
+  display: inline-block;
+  padding: 7px 14px;
+
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.22;
+  background-color: #ebd8ff;
+  border-radius: 4px;
+}
+
+.title {
+  margin-top: 80px;
+  font-size: 36px;
+  line-height: 1.5;
+}
+
+.image {
+  position: absolute;
+}
