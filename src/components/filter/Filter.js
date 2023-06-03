@@ -10,7 +10,7 @@ const Filter = ({ setSearchParams, statusFilter }) => {
 
   const handleClick = e => {
     if (e.target.nodeName === 'BUTTON') {
-      setSearchParams({ filter: e.target.textContent.toLowerCase() });
+      setSearchParams({ filter: e.target.textContent });
     }
   };
 

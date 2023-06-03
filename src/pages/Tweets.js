@@ -14,16 +14,11 @@ const Tweets = () => {
 
   useEffect(() => {
     (async () => {
+      console.log('d');
       try {
         const usersList = await API.getCardTweets(page);
-
-        if (page === '1') {
-          setTweetsColection(usersList);
-          setIsButton(true);
-        } else {
-          setTweetsColection(prevState => [...prevState, ...usersList]);
-          setIsButton(true);
-        }
+        setTweetsColection(prevState => [...prevState, ...usersList]);
+        setIsButton(true);
 
         if (page * 3 >= 12) {
           setIsButton(false);
