@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import * as API from '../../services/API';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import css from './CardTweets.module.css';
+import * as API from '../../services/API';
 import logo from '../../images/logo.svg';
+import css from './CardTweets.module.css';
 
 const CardTweets = ({ dataCard }) => {
   const { user, tweets, followers, avatar, selected, id } = dataCard;
@@ -64,6 +65,17 @@ const CardTweets = ({ dataCard }) => {
       </button>
     </div>
   );
+};
+
+CardTweets.propTypes = {
+  dataCard: PropTypes.shape({
+    user: PropTypes.string.isRequired,
+    tweets: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    avatar: PropTypes.string.isRequired,
+    selected: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
 };
 
 export default CardTweets;

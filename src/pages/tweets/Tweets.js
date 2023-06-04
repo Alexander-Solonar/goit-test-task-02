@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import * as API from '../../services/API';
-import Button from '../../components/Button';
 import TweetsList from '../../components/tweetsList/';
 import Filter from '../../components/filter';
-import css from './Tweets.module.css';
-import Loader from 'components/loader/Loader';
+import Button from '../../components/Button';
+import Loader from 'components/loader';
 import DefaultImg from 'components/defaultImg';
+import css from './Tweets.module.css';
 
 const Tweets = () => {
   const [tweetsColection, setTweetsColection] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [isButton, setIsButton] = useState(false);
   const [isLoader, setIsLoader] = useState(false);
   const [limit, setLimit] = useState(3);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const filter = searchParams.get('filter') ?? 'all';
 
@@ -44,12 +44,15 @@ const Tweets = () => {
   };
 
   const visibleContacts = () => {
-    if (filter === 'all') {
-      return tweetsColection;
-    } else if (filter === 'follow') {
-      return tweetsColection.filter(tweet => tweet.selected === false);
-    } else if (filter === 'followings') {
-      return tweetsColection.filter(tweet => tweet.selected === true);
+    switch (filter) {
+      case 'all':
+        return tweetsColection;
+      case 'follow':
+        return tweetsColection.filter(tweet => tweet.selected === false);
+      case 'followings':
+        return tweetsColection.filter(tweet => tweet.selected === true);
+      default:
+        return tweetsColection;
     }
   };
 

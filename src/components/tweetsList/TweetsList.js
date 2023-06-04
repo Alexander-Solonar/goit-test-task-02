@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import CardTweets from '../cardTweets';
 import css from './TweetsList.module.css';
 
@@ -11,6 +12,10 @@ const TweetsList = ({ data }) => {
       ))}
     </ul>
   );
+};
+
+TweetsList.propTypes = {
+  data: PropTypes.array.isRequired,
 };
 
 export default TweetsList;

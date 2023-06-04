@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+GoIT Test Task 02
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the solution for the GoIT Test Task 02. It is a
+task-based project focused on implementing a responsive webpage according to the
+provided design and requirements.
 
-## Available Scripts
+Description
 
-In the project directory, you can run:
+The GoIT Test Task 02 is aimed at assessing the ability to create a responsive
+web page using HTML, CSS, and JavaScript. The task involves converting a given
+design into a functional webpage with responsive layouts and interactive
 
-### `npm start`
+features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The challenge includes implementing a mobile-first approach, utilizing
+appropriate HTML structure, applying CSS styles and layout techniques, and
+adding interactivity using JavaScript.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technologies
 
-### `npm test`
+The project is built using the following technologies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. HTML5.
+2. CSS3.
+3. JavaScript.
+4. React.
 
-### `npm run build`
+Installation To run this project locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: git clone
+   https://github.com/Alexander-Solonar/goit-test-task-02.git
+2. Navigate to the project directory: cd goit-test-task-02
+3. Open the index.html file in your web browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Usage After following the installation steps, you can use the website as
+follows:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Access the web page in your web browser.
+2. Explore the different sections and interactive elements of the page.
+3. Test the responsiveness by resizing the browser window or accessing it from
+   different devices.
+4. Interact with the provided features and functionalities.
 
-### `npm run eject`
+Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions to this project are not open as it is a test task for the GoIT
+course. However, feedback and suggestions are welcome.
