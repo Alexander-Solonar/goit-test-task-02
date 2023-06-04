@@ -4,7 +4,7 @@ import css from './Filter.module.css';
 
 const Filter = ({ setSearchParams, statusFilter }) => {
   const filterButtons = [
-    { value: 'all', label: 'all' },
+    { value: 'show all', label: 'show all' },
     { value: 'follow', label: 'follow' },
     { value: 'followings', label: 'followings' },
   ];

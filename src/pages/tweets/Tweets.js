@@ -15,7 +15,7 @@ const Tweets = () => {
   const [limit, setLimit] = useState(3);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const filter = searchParams.get('filter') ?? 'all';
+  const filter = searchParams.get('filter') ?? 'show all';
 
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
