@@ -15,6 +15,7 @@ const Filter = ({ setSearchParams, statusFilter }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
+      fontFamily: 'Montserrat',
       backgroundColor: '#fff',
       border: ' 2px solid #4b2a99',
       outline: '#4b2a99',
@@ -26,6 +27,7 @@ const Filter = ({ setSearchParams, statusFilter }) => {
     }),
     option: (provided, state) => ({
       ...provided,
+      fontFamily: 'Montserrat',
       backgroundColor: state.isSelected ? '#4b2a99' : 'inherit',
       color: state.isSelected ? '#fff' : 'inherit',
       cursor: 'pointer',
