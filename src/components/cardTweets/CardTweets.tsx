@@ -1,26 +1,40 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { FC, useState } from 'react';
 import clsx from 'clsx';
 import * as API from '../../services/API';
 import logo from '../../images/logo.svg';
 import css from './CardTweets.module.css';
 
-const CardTweets = ({ dataCard }) => {
-  const { user, tweets, followers, avatar, selected, id } = dataCard;
+interface Tweet {
+  tweet: {
+    user: string;
+    tweets: number;
+    followers: number;
+    avatar: string;
+    selected: boolean;
+    id: string;
+  };
+}
 
-  const [changeFollowers, setChangeFollowers] = useState(followers);
-  const [textBtn, setTextBtn] = useState(selected ? 'Following' : 'Follow');
+type TextBtb = 'Following' | 'Follow';
+
+const CardTweets: FC<Tweet> = ({ tweet }) => {
+  const { user, tweets, followers, avatar, selected, id } = tweet;
+  const [changeFollowers, setChangeFollowers] = useState<number>(followers);
+  const [textBtn, setTextBtn] = useState<TextBtb>(
+    selected ? 'Following' : 'Follow'
+  );
   const [isSelected, setIsSelected] = useState(selected);
 
   const formattedNumber = changeFollowers.toLocaleString('en-US');
 
-  const changeUseHook = (folower, select, text) => {
+  const changeUseHook = (folower: number, select: boolean, text: TextBtb) => {
+    console.log(text);
     setChangeFollowers(prevState => prevState + folower);
     setIsSelected(select);
     setTextBtn(text);
   };
 
-  const handleClick = async id => {
+  const handleClick = async (id: string) => {
     try {
       if (!isSelected) {
         changeUseHook(1, true, 'Following');
@@ -36,8 +50,8 @@ const CardTweets = ({ dataCard }) => {
           followers: changeFollowers - 1,
         });
       }
-    } catch (error) {
-      alert(error.message);
+    } catch (error: any) {
+      alert((error as Error).message);
     }
   };
 
@@ -65,17 +79,6 @@ const CardTweets = ({ dataCard }) => {
       </button>
     </div>
   );
-};
-
-CardTweets.propTypes = {
-  dataCard: PropTypes.shape({
-    user: PropTypes.string.isRequired,
-    tweets: PropTypes.number.isRequired,
-    followers: PropTypes.number.isRequired,
-    avatar: PropTypes.string.isRequired,
-    selected: PropTypes.bool.isRequired,
-    id: PropTypes.string.isRequired,
-  }),
 };
 
 export default CardTweets;

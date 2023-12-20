@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Tweet } from '../../components/tweetsList/TweetsList';
 import * as API from '../../services/API';
-import TweetsList from '../../components/tweetsList/';
+import TweetsList from '../../components/tweetsList';
 import Filter from '../../components/filter';
 import Button from '../../components/Button';
-import Loader from 'components/loader';
-import DefaultImg from 'components/defaultImg';
+import Loader from '../../components/loader';
+import DefaultImg from '../../components/defaultImg';
 import css from './Tweets.module.css';
 
 const Tweets = () => {
-  const [tweetsColection, setTweetsColection] = useState([]);
-  const [isButton, setIsButton] = useState(false);
-  const [isLoader, setIsLoader] = useState(false);
-  const [limit, setLimit] = useState(3);
+  const [tweetsColection, setTweetsColection] = useState<Tweet[]>([]);
+  const [isButton, setIsButton] = useState<boolean>(false);
+  const [isLoader, setIsLoader] = useState<boolean>(false);
+  const [limit, setLimit] = useState<number>(3);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filter = searchParams.get('filter') ?? 'show all';
@@ -34,12 +35,12 @@ const Tweets = () => {
       } catch (error) {
         setIsButton(true);
         setIsLoader(false);
-        alert(error.message);
+        alert((error as Error).message);
       }
     })();
   }, [limit, filter]);
 
-  const handleChangePage = () => {
+  const handleChangeLimit = () => {
     setLimit(prevState => prevState + 3);
   };
 
@@ -66,7 +67,7 @@ const Tweets = () => {
       {visibleContacts().length > 0 && <TweetsList data={visibleContacts()} />}
       {isLoader && <Loader width="96" />}
       {isButton && !isLoader && visibleContacts().length > 0 && (
-        <Button onClick={handleChangePage}></Button>
+        <Button changeLimit={handleChangeLimit}></Button>
       )}
     </div>
   );

@@ -1,8 +1,12 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
 import css from './Loader.module.css';
 
-const Loader = ({ width }) => {
+interface LoaderProps {
+  width: string;
+}
+
+const Loader: FC<LoaderProps> = ({ width }) => {
   return (
     <div className={css.loader}>
       <RotatingLines
@@ -14,10 +18,6 @@ const Loader = ({ width }) => {
       />
     </div>
   );
-};
-
-Loader.propTypes = {
-  width: PropTypes.string.isRequired,
 };
 
 export default Loader;

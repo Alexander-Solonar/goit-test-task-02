@@ -1,21 +1,21 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import css from './Button.module.css';
 
-const Button = ({ onClick }) => {
+interface ButtonProps {
+  changeLimit: () => void;
+}
+
+const Button: FC<ButtonProps> = ({ changeLimit }) => {
   return (
     <button
       className={css.button}
       onClick={() => {
-        onClick(prevState => prevState + 3);
+        changeLimit();
       }}
     >
       Load more
     </button>
   );
-};
-
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

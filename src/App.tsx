@@ -3,7 +3,7 @@ import Home from './pages/home/Home';
 import Tweets from './pages/tweets/Tweets';
 import './App.css';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -11,6 +11,6 @@ function App() {
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
-}
+};
 
 export default App;
