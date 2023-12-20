@@ -27,6 +27,7 @@ const Filter: FC<FilterProps> = ({ setSearchParams, statusFilter }) => {
   const customStyles = {
     control: (provided: object) => ({
       ...provided,
+      fontFamily: 'Montserrat',
       backgroundColor: '#fff',
       border: '2px solid #4b2a99',
       outline: '#4b2a99',
@@ -38,6 +39,7 @@ const Filter: FC<FilterProps> = ({ setSearchParams, statusFilter }) => {
     }),
     option: (provided: object, state: { isSelected: boolean }) => ({
       ...provided,
+      fontFamily: 'Montserrat',
       backgroundColor: state.isSelected ? '#4b2a99' : 'inherit',
       color: state.isSelected ? '#fff' : 'inherit',
       cursor: 'pointer',
