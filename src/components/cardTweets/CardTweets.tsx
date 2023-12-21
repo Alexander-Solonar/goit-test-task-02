@@ -28,7 +28,6 @@ const CardTweets: FC<Tweet> = ({ tweet }) => {
   const formattedNumber = changeFollowers.toLocaleString('en-US');
 
   const changeUseHook = (folower: number, select: boolean, text: TextBtb) => {
-    console.log(text);
     setChangeFollowers(prevState => prevState + folower);
     setIsSelected(select);
     setTextBtn(text);
